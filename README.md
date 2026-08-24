@@ -1,16 +1,31 @@
-# React + Vite
+# Projeto API - React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido em React com o objetivo de praticar o consumo de APIs utilizando `fetch` e `useEffect`.
 
-Currently, two official plugins are available:
+## 🌐 Acesso ao projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Você pode acessar o projeto publicado no GitHub Pages:
 
-## React Compiler
+🔗 [projeto-api](https://gsvjacob.github.io/ReactRepoAPI/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 Sobre o projeto
 
-## Expanding the ESLint configuration
+O projeto realiza uma requisição para a API **JSONPlaceholder** e exibe uma lista de tarefas na tela.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+As tarefas são carregadas utilizando:
+
+- `useState` para armazenar os dados;
+- `useEffect` para realizar a requisição ao carregar a página;
+- `fetch` para consumir a API;
+- `map()` para percorrer e exibir as tarefas.
+
+A aplicação também apresenta o estado de carregamento enquanto os dados estão sendo buscados.
+
+## 🔌 API utilizada
+
+Foi utilizada a **JSONPlaceholder**, uma API REST gratuita para testes e estudos.
+
+Endpoint utilizado:
+
+```text
+https://jsonplaceholder.typicode.com/todos?_limit=50
