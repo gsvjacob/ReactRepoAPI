@@ -1,8 +1,3 @@
-Sim. O que aconteceu é que o trecho que você colou **foi interrompido no meio do bloco de código**, justamente depois do endpoint. A parte de **estilização com IA** também ficou de fora.
-
-O README completo deveria ficar assim:
-
-````markdown
 # Projeto API - React
 
 Projeto desenvolvido em React com o objetivo de praticar o consumo de APIs utilizando `fetch` e `useEffect`.
@@ -122,8 +117,3 @@ Este projeto foi desenvolvido como atividade de estudo de desenvolvimento web, c
 * Estilização utilizando Bootstrap;
 * Versionamento com Git e GitHub;
 * Deploy utilizando GitHub Pages.
-
-```
-
-**Esse é o conteúdo completo**. No seu trecho, faltava principalmente tudo depois do endpoint, incluindo a seção `🎨 Estilização`, onde deixei explícito que a interface foi feita com **auxílio de IA**.
-```
