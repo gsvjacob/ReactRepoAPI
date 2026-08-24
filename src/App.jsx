@@ -2,41 +2,86 @@ import { useState, useEffect } from "react"
 
 function App() {
 
-  // Crie duas const para guardar e carregar tarefas...
   const [tarefas, setTarefas] = useState([])
   const [carregando, setCarregando] = useState(true)
-  // useEffect com fetch (requisições assíncronas)
+
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos?_limit=50')
       .then((resposta) => resposta.json())
       .then((dados) => {
-        setTarefas(dados); // Salva os dados vindos da API no estado.
-        setCarregando(false) // Desativa a mensagem carregando.
-      });
-  }, []); // Array vazio para executar apenas UMA vez ao abrir a tela
+        setTarefas(dados)
+        setCarregando(false)
+      })
+  }, [])
 
   return (
-    <>
+    <div className="bg-light min-vh-100 py-5">
 
-      <div>
-        <div>
-          <h2 className="text-black fs-1 mb-3">Tarefas vindas da API</h2>
-          <p className="mb-3"><strong>Consumindo dados de JSONPlaceholder via fetch e useEffect</strong></p>
-          {carregando ? (
-            <div>Carregando...</div>
-          ):(
-            <ul>
-              {tarefas.map((item)=> (
-                <li key={item.id} className="text-start">{item.title}
-                  {item.completed ? 'Concluído' : 'Pendente'}
-                </li>
-              ))}
-            </ul>
-          )}
+      <div className="container">
+
+        <div className="card shadow-sm border-0">
+
+          <div className="card-body p-4">
+
+            <h2 className="text-dark mb-2">
+              Tarefas vindas da API
+            </h2>
+
+            <p className="text-secondary mb-4">
+              Consumindo dados de JSONPlaceholder via fetch e useEffect
+            </p>
+
+            {carregando ? (
+              <div className="text-center py-4">
+                <div
+                  className="spinner-border text-primary"
+                  role="status"
+                >
+                  <span className="visually-hidden">
+                    Carregando...
+                  </span>
+                </div>
+
+                <p className="text-secondary mt-2">
+                  Carregando tarefas...
+                </p>
+              </div>
+            ) : (
+              <ul className="list-group">
+
+                {tarefas.map((item) => (
+                  <li
+                    key={item.id}
+                    className="list-group-item d-flex justify-content-between align-items-center"
+                  >
+
+                    <span>
+                      {item.title}
+                    </span>
+
+                    <span
+                      className={`badge ${
+                        item.completed
+                          ? "text-bg-success"
+                          : "text-bg-warning"
+                      }`}
+                    >
+                      {item.completed ? "Concluído" : "Pendente"}
+                    </span>
+
+                  </li>
+                ))}
+
+              </ul>
+            )}
+
+          </div>
+
         </div>
+
       </div>
-    
-    </>
+
+    </div>
   )
 }
 
